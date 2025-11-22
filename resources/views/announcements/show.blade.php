@@ -1,4 +1,4 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 
 @section('content')
 <div class="container mx-auto px-4 py-8 max-w-4xl">
@@ -6,7 +6,7 @@
 
     <article class="bg-white rounded-lg shadow-xl p-8">
         <h1 class="text-4xl font-extrabold text-gray-900 mb-4">{{ $announcement->title }}</h1>
-        
+
         <div class="flex items-center text-gray-500 text-sm mb-6 space-x-4">
             <span>Kategori: <strong class="text-indigo-600">{{ $announcement->category }}</strong></span>
             <span>Tanggal: {{ \Carbon\Carbon::parse($announcement->date)->locale('id')->isoFormat('D MMMM YYYY') }}</span>
@@ -14,7 +14,7 @@
 
         <div class="prose max-w-none leading-relaxed text-gray-800 border-t pt-6">
             {{-- Konten yang disimpan dari Rich Editor Filament akan ditampilkan di sini --}}
-            {!! $announcement->content !!} 
+            {!! $announcement->content !!}
         </div>
 
         @if ($announcement->attachment)
