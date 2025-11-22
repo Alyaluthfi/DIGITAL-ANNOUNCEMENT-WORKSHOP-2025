@@ -19,7 +19,7 @@ class AnnouncementsTable
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),
-                TextColumn::make('category')
+                TextColumn::make('category.name')
                     ->searchable(),
                 TextColumn::make('date')
                     ->date()

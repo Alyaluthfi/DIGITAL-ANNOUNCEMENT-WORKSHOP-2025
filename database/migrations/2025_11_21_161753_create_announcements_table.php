@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 255); // Judul Pengumuman
             $table->string('slug')->unique(); // Slug (untuk URL Halaman Detail)
-            $table->string('category')->default('Umum'); // Kategori
+            $table->foreignId('category_id')->constrained('categories','id'); // Kategori
             $table->text('content'); // Isi Pengumuman (Teks Panjang)
             $table->date('date'); // Tanggal Pengumuman Dibuat/Diterbitkan
             $table->string('attachment')->nullable(); // Lampiran (Opsional)
@@ -25,3 +25,4 @@ return new class extends Migration
         Schema::dropIfExists('announcements');
     }
 };
+
