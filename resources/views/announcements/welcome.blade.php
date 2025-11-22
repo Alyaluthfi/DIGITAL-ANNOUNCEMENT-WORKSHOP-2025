@@ -66,7 +66,7 @@
                     </svg>
                 </div>
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Selamat Datang!</h1>
-                <p class="text-lg text-gray-600 mt-2">Selamat datang di Papan Pengumuman Kampus</p>
+                <p class="text-lg text-gray-600 mt-2">Selamat datang di Papan Pengumuman Sekolah/Kampus</p>
             </div>
 
             <!-- Features -->
@@ -79,7 +79,7 @@
                     </div>
                     <div>
                         <h4 class="font-medium text-gray-800">Informasi Terbaru</h4>
-                        <p class="text-sm text-gray-600">Akses pengumuman terkini dari kampus</p>
+                        <p class="text-sm text-gray-600">Akses pengumuman terkini dari sekolah/kampus</p>
                     </div>
                 </div>
                 <div class="flex items-start">
