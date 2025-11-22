@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Announcements\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -21,8 +22,9 @@ class AnnouncementForm
                     ->required()
                     ->maxLength(255),
                 // Gunakan Textarea/TextInput untuk category, tanpa Select
-                Textarea::make('category')
-                    ->maxLength(255),
+                Select::make('category_id')
+                    ->relationship('category', 'name')
+                    ->required(),
                 // Gunakan Textarea untuk konten, tanpa RichEditor
                 Textarea::make('content')
                     ->required()

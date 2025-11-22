@@ -1,8 +1,8 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 
 @section('content')
 <div class="container mx-auto px-4 py-12">
-    
+
     <!-- Hero Section Pengumuman -->
     <header class="text-center mb-10 bg-white p-8 rounded-lg shadow-lg border-b-4 border-indigo-500">
         <h1 class="text-4xl font-bold text-gray-800">Papan Pengumuman Sekolah/Kampus</h1>
@@ -17,7 +17,7 @@
                     <!-- Kategori & Tanggal -->
                     <div class="flex justify-between items-center text-sm mb-3">
                         <span class="font-semibold px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full">
-                            {{ $announcement->category }}
+                            {{ $announcement->category->name }}
                         </span>
                         <span class="text-gray-500">
                             {{ \Carbon\Carbon::parse($announcement->date)->locale('id')->isoFormat('D MMM YYYY') }}
@@ -30,11 +30,11 @@
                             {{ $announcement->title }}
                         </a>
                     </h2>
-                    
+
                     <!-- Ringkasan Konten -->
                     <p class="text-gray-600 text-sm mt-3 line-clamp-3">
                         {{ Str::limit(strip_tags($announcement->content), 150) }}
-                    </p> 
+                    </p>
 
                     <!-- Link Detail -->
                     <div class="mt-4 pt-4 border-t border-gray-100">

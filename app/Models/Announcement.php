@@ -13,12 +13,15 @@ class Announcement extends Model
     protected $fillable = [
         'title',
         'slug',
-        'category',
+        'category_id',
         'content',
         'date',
         'attachment',
     ];
-
+    public function category()
+    {
+        return $this->belongsTo(categories::class, 'category_id');
+    }
     // Otomatis membuat Slug sebelum menyimpan data
     protected static function boot()
     {
@@ -27,7 +30,7 @@ class Announcement extends Model
         static::creating(function ($announcement) {
             $announcement->slug = Str::slug($announcement->title);
         });
-        
+
         static::updating(function ($announcement) {
             $announcement->slug = Str::slug($announcement->title);
         });
