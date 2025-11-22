@@ -7,7 +7,7 @@ use App\Http\Controllers\AnnouncementController;
 Route::get('/pengumuman', [AnnouncementController::class, 'index'])->name('announcements.index');
 
 // Rute untuk Halaman Dashboard
-//Route::get('/', [AnnouncementController::class, 'index'])->name('announcements.index');
+Route::get('/', [AnnouncementController::class, 'welcome'])->name('announcements.welcome');
 
 // Rute untuk Halaman Detail Pengumuman
 Route::get('/pengumuman/{slug}', [AnnouncementController::class, 'show'])->name('announcements.show');

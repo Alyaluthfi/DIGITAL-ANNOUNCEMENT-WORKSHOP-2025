@@ -22,4 +22,10 @@ class AnnouncementController extends Controller
 
         return view('announcements.show', compact('announcement'));
     }
+
+    // Halaman Dashboard: Menampilkan Pesan Selamat Datang
+    public function welcome()
+    {
+        return view('announcements.welcome');
+    }
 }
