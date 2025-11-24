@@ -3,16 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
+use App\Models\categories;
 use Illuminate\Http\Request;
 
 class AnnouncementController extends Controller
 {
     // Halaman Utama: Menampilkan List Pengumuman
-    public function index()
+    public function index(Request $request)
     {
-        $announcements = Announcement::orderBy('date', 'desc')->paginate(10); // Ambil 10 data per halaman
+        $query = Announcement::with('category')->latest();
 
-        return view('announcements.index', compact('announcements'));
+        // Filter berdasarkan kategori jika ada
+        if ($request->has('category') && $request->category) {
+            $query->where('category_id', $request->category);
+        }
+
+        $announcements = $query->paginate(9);
+        $categories = categories::all(); // Mengambil semua kategori untuk filter
+
+        return view('announcements.index', compact('announcements', 'categories'));
     }
 
     // Halaman Detail: Menampilkan Isi Pengumuman
